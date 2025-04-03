@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DJ CABALLO</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(circle at center, #1e1e1e, #000000);
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      height: 100vh;
+      position: relative;
+      color: white;
+    }
+    .title, .subtitle {
+      text-align: center;
+      position: relative;
+      z-index: 5;
+      transition: all 0.3s ease;
+      color: #ff66cc;
+      text-shadow: 0 0 5px #ff66cc;
+    }
+    .title { font-size: 3rem; margin-top: 2rem; }
+    .subtitle { font-size: 1.5rem; }
+    .active-glow .title {
+      color: #ff0033;
+      text-shadow: 0 0 20px #ff0033, 0 0 40px #ff0033;
+    }
+    .active-glow .subtitle {
+      color: #ff0033;
+      text-shadow: 0 0 15px #ff0033;
+    }
+    #laser-svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #laser-svg.active { opacity: 0.5; }
+    #dj-caballo {
+      width: 300px;
+      height: 300px;
+      background-image: url('/dj-caballo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+      will-change: transform;
+      filter: drop-shadow(0 0 3px #ff66cc);
+      transition: filter 0.3s ease;
+    }
+    #dj-caballo.glow {
+      filter: drop-shadow(0 0 25px #ff0033) brightness(1.2);
+    }
+    #smoke-svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #smoke-svg.active {
+      opacity: 0.6;
+      animation: pulseSmoke 2s ease-in-out infinite alternate;
+    }
+    @keyframes pulseSmoke {
+      from { opacity: 0.3; }
+      to { opacity: 0.6; }
+    }
+    #visualizer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">DJ CABALLO</div>
+  <div class="subtitle">COMING SOON</div>
+  <svg id="laser-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ff9a00" />
+        <stop offset="50%" stop-color="#ff004c" />
+        <stop offset="100%" stop-color="#ff0066" />
+      </linearGradient>
+    </defs>
+    <g stroke="url(#sunset)" stroke-width="0.2" opacity="0.4">
+      <line x1="0" y1="0" x2="20" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="20" y1="0" x2="40" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="40" y1="0" x2="60" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="60" y1="0" x2="80" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="80" y1="0" x2="100" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="10" y1="0" x2="30" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="30" y1="0" x2="50" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="50" y1="0" x2="70" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="70" y1="0" x2="90" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="90" y1="0" x2="110" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="100" y1="0" x2="80" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="80" y1="0" x2="60" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="60" y1="0" x2="40" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="40" y1="0" x2="20" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="20" y1="0" x2="0" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="90" y1="0" x2="70" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="70" y1="0" x2="50" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="50" y1="0" x2="30" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="30" y1="0" x2="10" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="10" y1="0" x2="0" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="95" y1="0" x2="75" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="75" y1="0" x2="55" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="55" y1="0" x2="35" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="35" y1="0" x2="15" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+<line x1="15" y1="0" x2="5" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
+
+
+ 
+
+</g>
+  </svg>
+  <div id="dj-caballo"></div>
+  <svg id="smoke-svg" viewBox="0 0 200 100" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ff9a00" />
+        <stop offset="50%" stop-color="#ff004c" />
+        <stop offset="100%" stop-color="#ff0066" />
+      </linearGradient>
+    </defs>
+    <g fill="url(#sunset)">
+      <!-- Path 1: Nebbia in basso, lenta -->
+      <path d="M0,50 Q50,45 100,50 T200,50" stroke-width="6">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="M0,50 Q50,45 100,50 T200,50; M0,48 Q50,48 100,52 T200,48; M0,50 Q50,45 100,50 T200,50"/>
+      </path>
+  
+      <!-- Path 2: Nebbia in alto, velocità maggiore -->
+      <path d="M0,45 Q50,40 100,45 T200,45" stroke-width="6">
+        <animate attributeName="d" dur="4s" repeatCount="indefinite"
+          values="M0,45 Q50,40 100,45 T200,45; M0,43 Q50,43 100,47 T200,43; M0,45 Q50,40 100,45 T200,45"/>
+      </path>
+  
+      <!-- Path 3: Nebbia al centro, velocità intermedia -->
+      <path d="M0,40 Q50,35 100,40 T200,40" stroke-width="6">
+        <animate attributeName="d" dur="5s" repeatCount="indefinite"
+          values="M0,40 Q50,35 100,40 T200,40; M0,38 Q50,38 100,42 T200,38; M0,40 Q50,35 100,40 T200,40"/>
+      </path>
+  
+      <!-- Path 4: Nebbia più spessa, movimenti veloci -->
+      <path d="M0,55 Q50,50 100,55 T200,55" stroke-width="8">
+        <animate attributeName="d" dur="3s" repeatCount="indefinite"
+          values="M0,55 Q50,50 100,55 T200,55; M0,53 Q50,53 100,57 T200,53; M0,55 Q50,50 100,55 T200,55"/>
+      </path>
+  
+      <!-- Path 5: Nebbia molto densa, movimento molto lento -->
+      <path d="M0,35 Q50,30 100,35 T200,35" stroke-width="10">
+        <animate attributeName="d" dur="7s" repeatCount="indefinite"
+          values="M0,35 Q50,30 100,35 T200,35; M0,33 Q50,33 100,37 T200,33; M0,35 Q50,30 100,35 T200,35"/>
+      </path>
+  
+      <!-- Path 6: Nebbia leggera, movimenti veloci e delicati -->
+      <path d="M0,60 Q50,55 100,60 T200,60" stroke-width="4">
+        <animate attributeName="d" dur="2s" repeatCount="indefinite"
+          values="M0,60 Q50,55 100,60 T200,60; M0,58 Q50,58 100,62 T200,58; M0,60 Q50,55 100,60 T200,60"/>
+      </path>
+  
+    </g>
+  </svg>
+  <audio id="dj-audio" src="/musica.mp3"></audio>
+  <canvas id="visualizer"></canvas>
+  <script>
+    const caballo = document.getElementById("dj-caballo");
+    const audio = document.getElementById("dj-audio");
+    const visualizer = document.getElementById("visualizer");
+    const ctx = visualizer.getContext("2d");
+    const smoke = document.getElementById("smoke-svg");
+    const laser = document.getElementById("laser-svg");
+    const body = document.body;
+    let audioCtx, analyser, source, dataArray, bufferLength, animating = false;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    const halfSize = 300;
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX ;
+      mouseY = e.clientY ;
+
+
+
+  
+    });
+    function animateCaballo() {
+  currentX += (mouseX - currentX) * 0.1;
+  currentY += (mouseY - currentY) * 0.1;
+  caballo.style.transform = `translate3d(${currentX - caballo.offsetWidth / 2}px, ${currentY - caballo.offsetHeight }px, 0)`;
+  requestAnimationFrame(animateCaballo);
+}
+    animateCaballo();
+    function setupAudio() {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      analyser.fftSize = 64;
+      bufferLength = analyser.frequencyBinCount;
+      dataArray = new Uint8Array(bufferLength);
+    }
+    function drawBars() {
+      if (!animating) return;
+      requestAnimationFrame(drawBars);
+      analyser.getByteFrequencyData(dataArray);
+      ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+      const barWidth = visualizer.width / bufferLength;
+      dataArray.forEach((value, i) => {
+        const barHeight = value;
+        const x = i * barWidth;
+        ctx.fillStyle = `rgba(255, 50, 100, 0.8)`;
+        ctx.fillRect(x, visualizer.height - barHeight, barWidth - 1, barHeight);
+      });
+    }
+    function toggleMusic() {
+      if (!audioCtx) setupAudio();
+      if (audio.paused) {
+        audio.play();
+        audioCtx.resume();
+        animating = true;
+        caballo.classList.add("glow");
+        smoke.classList.add("active");
+        laser.classList.add("active");
+        body.classList.add("active-glow");
+        drawBars();
+      } else {
+        audio.pause();
+        animating = false;
+        caballo.classList.remove("glow");
+        smoke.classList.remove("active");
+        laser.classList.remove("active");
+        body.classList.remove("active-glow");
+        ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+      }
+    }
+    caballo.addEventListener("click", toggleMusic);
+    function resizeCanvas() {
+      visualizer.width = window.innerWidth;
+      visualizer.height = 100;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>
