@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DJ CABALLO</title>
+  <title>DJ CAVALLO</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,26 +22,49 @@
       color: #ff66cc;
       text-shadow: 0 0 5px #ff66cc;
     }
+    .subsub {
+      text-align: right;
+      position: absolute;
+      bottom: 70px;
+      right: 20px;
+      z-index: 5;
+      transition: all 0.3s ease;
+      color: #21a4fb;
+      text-shadow: 0 0 5px #138ef9;
+    }
+    .subsub a {
+    color: inherit;            /* usa il colore del div (es. #ff66cc) */
+    text-decoration: none;     /* rimuove la sottolineatura */
+    text-shadow: inherit;      /* eredita il glow */
+    transition: inherit;       /* mantiene la transizione */
+}
     .title { font-size: 3rem; margin-top: 2rem; }
     .subtitle { font-size: 1.5rem; }
+    .subsub { font-size: 1.5rem; }
     .active-glow .title {
       color: #ff0033;
-      text-shadow: 0 0 20px #ff0033, 0 0 40px #ff0033;
+      text-shadow: 0 0 20px #ff0033, 0 0 40px #ffffff;
     }
     .active-glow .subtitle {
       color: #ff0033;
-      text-shadow: 0 0 15px #ff0033;
+      text-shadow: 0 0 15px #ffffff;
+    }
+    .active-glow .subsub {
+      color: #3579ff;
+      text-shadow: 0 0 15px #ffffff;
     }
     #laser-svg {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: 3;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
-    #laser-svg.active { opacity: 0.5; }
+    #laser-svg.active { opacity: 0.7; }
     #dj-caballo {
       width: 300px;
       height: 300px;
@@ -50,32 +73,16 @@
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
-      z-index: 1;
+      z-index: 4;
       cursor: pointer;
       will-change: transform;
       filter: drop-shadow(0 0 3px #ff66cc);
       transition: filter 0.3s ease;
     }
     #dj-caballo.glow {
-      filter: drop-shadow(0 0 25px #ff0033) brightness(1.2);
+      filter: drop-shadow(0 0 25px #ffffff) brightness(1.2);
     }
-    #smoke-svg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    #smoke-svg.active {
-      opacity: 0.6;
-      animation: pulseSmoke 2s ease-in-out infinite alternate;
-    }
-    @keyframes pulseSmoke {
-      from { opacity: 0.3; }
-      to { opacity: 0.6; }
-    }
+   
     #visualizer {
       position: absolute;
       bottom: 0;
@@ -84,101 +91,172 @@
       height: 100px;
       z-index: 3;
     }
+    .crowd {
+      top: 54vh;
+      position: absolute;
+      width: 80%;
+      display: grid;
+      left: 50%;
+      transform: translateX(-50%);
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .dancer {
+      width: 10vmin;
+      height: auto;
+      animation: bounce 1s infinite ease-in-out;
+      opacity: 0;
+    }
+    .dancer.active {
+      opacity: 1;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-17px); }
+    }
   </style>
 </head>
 <body>
-  <div class="title">DJ CABALLO</div>
+
+  <div class="title">DJ CAVALLO</div>
   <div class="subtitle">COMING SOON</div>
+  <div class="subsub"><a href="https://yhwh-node.com">yhwh-node.com</a></div>
+
   <svg id="laser-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
       <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#ff9a00" />
         <stop offset="50%" stop-color="#ff004c" />
-        <stop offset="100%" stop-color="#ff0066" />
+        <stop offset="100%" stop-color="#ff0033" />
       </linearGradient>
     </defs>
-    <g stroke="url(#sunset)" stroke-width="0.2" opacity="0.4">
-      <line x1="0" y1="0" x2="20" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="20" y1="0" x2="40" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="40" y1="0" x2="60" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="60" y1="0" x2="80" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="80" y1="0" x2="100" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="10" y1="0" x2="30" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="30" y1="0" x2="50" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="50" y1="0" x2="70" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="70" y1="0" x2="90" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="90" y1="0" x2="110" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="100" y1="0" x2="80" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="80" y1="0" x2="60" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="60" y1="0" x2="40" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="40" y1="0" x2="20" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="20" y1="0" x2="0" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="90" y1="0" x2="70" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="70" y1="0" x2="50" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="50" y1="0" x2="30" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="30" y1="0" x2="10" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="10" y1="0" x2="0" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="95" y1="0" x2="75" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="75" y1="0" x2="55" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="55" y1="0" x2="35" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="35" y1="0" x2="15" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-<line x1="15" y1="0" x2="5" y2="100"><animate attributeName="y2" values="100;95;100" dur="2s" repeatCount="indefinite"/></line>
-
-
- 
-
-</g>
-  </svg>
-  <div id="dj-caballo"></div>
-  <svg id="smoke-svg" viewBox="0 0 200 100" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ff9a00" />
-        <stop offset="50%" stop-color="#ff004c" />
-        <stop offset="100%" stop-color="#ff0066" />
-      </linearGradient>
-    </defs>
-    <g fill="url(#sunset)">
-      <!-- Path 1: Nebbia in basso, lenta -->
-      <path d="M0,50 Q50,45 100,50 T200,50" stroke-width="6">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="M0,50 Q50,45 100,50 T200,50; M0,48 Q50,48 100,52 T200,48; M0,50 Q50,45 100,50 T200,50"/>
-      </path>
+    <filter id="laser-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <g stroke="url(#sunset)" stroke-width="0.4" opacity="0.6">
+      <!-- Fascio 1: verso centro a (50,50) -->
+    <line x1="0" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="5" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="10" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="15" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="20" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="25" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="30" y1="0" x2="90" y2="50">
+      <animate attributeName="x2" values="70;75;80" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;52;50" dur="2s" repeatCount="indefinite"/>
+    </line>
   
-      <!-- Path 2: Nebbia in alto, velocità maggiore -->
-      <path d="M0,45 Q50,40 100,45 T200,45" stroke-width="6">
-        <animate attributeName="d" dur="4s" repeatCount="indefinite"
-          values="M0,45 Q50,40 100,45 T200,45; M0,43 Q50,43 100,47 T200,43; M0,45 Q50,40 100,45 T200,45"/>
-      </path>
+      <!-- Fascio 2: verso (50,60) -->
+      <!-- Fascio 2: simmetrico verso il centro, y2 = 50 -->
+      <line x1="35" y1="0" x2="45" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="40" y1="0" x2="47.5" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="45" y1="0" x2="49" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="50" y1="0" x2="50" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="55" y1="0" x2="51" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="0" x2="52.5" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="65" y1="0" x2="55" y2="50">
+        <animate attributeName="y2" values="50;52;50" dur="2.1s" repeatCount="indefinite"/>
+      </line>
   
-      <!-- Path 3: Nebbia al centro, velocità intermedia -->
-      <path d="M0,40 Q50,35 100,40 T200,40" stroke-width="6">
-        <animate attributeName="d" dur="5s" repeatCount="indefinite"
-          values="M0,40 Q50,35 100,40 T200,40; M0,38 Q50,38 100,42 T200,38; M0,40 Q50,35 100,40 T200,40"/>
-      </path>
-  
-      <!-- Path 4: Nebbia più spessa, movimenti veloci -->
-      <path d="M0,55 Q50,50 100,55 T200,55" stroke-width="8">
-        <animate attributeName="d" dur="3s" repeatCount="indefinite"
-          values="M0,55 Q50,50 100,55 T200,55; M0,53 Q50,53 100,57 T200,53; M0,55 Q50,50 100,55 T200,55"/>
-      </path>
-  
-      <!-- Path 5: Nebbia molto densa, movimento molto lento -->
-      <path d="M0,35 Q50,30 100,35 T200,35" stroke-width="10">
-        <animate attributeName="d" dur="7s" repeatCount="indefinite"
-          values="M0,35 Q50,30 100,35 T200,35; M0,33 Q50,33 100,37 T200,33; M0,35 Q50,30 100,35 T200,35"/>
-      </path>
-  
-      <!-- Path 6: Nebbia leggera, movimenti veloci e delicati -->
-      <path d="M0,60 Q50,55 100,60 T200,60" stroke-width="4">
-        <animate attributeName="d" dur="2s" repeatCount="indefinite"
-          values="M0,60 Q50,55 100,60 T200,60; M0,58 Q50,58 100,62 T200,58; M0,60 Q50,55 100,60 T200,60"/>
-      </path>
-  
+      <!-- Fascio 3: verso (50,70) -->
+      <!-- Fascio 3: punta verso sinistra, Y resta intorno a 50 -->
+      <line x1="70" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="75" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="80" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="85" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="90" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="95" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="0" x2="10" y2="50">
+        <animate attributeName="x2" values="20;25;30" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="50;48;50" dur="2.2s" repeatCount="indefinite"/>
+      </line>
     </g>
   </svg>
+
+  <div id="dj-caballo"></div>
+
+  <div class="crowd">
+    <img src="/animal2.png" class="dancer" style="animation-delay: 0.61s;" />
+    <img src="/animal3.png" class="dancer" style="animation-delay: 0.32s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.20s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.47s;" />
+    <img src="/animal5.png" class="dancer" style="animation-delay: 0.76s;" />
+    <img src="/animal2.png" class="dancer" style="animation-delay: 0.44s;" />
+    <img src="/animal3.png" class="dancer" style="animation-delay: 0.08s;" />
+                      
+    <img src="/animal3.png" class="dancer" style="animation-delay: 0.28s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.76s;" />
+    <img src="/animal2.png" class="dancer" style="animation-delay: 0.57s;" />
+    <img src="/animal4.png" class="dancer" style="animation-delay: 0.60s;" />
+    <img src="/animal5.png" class="dancer" style="animation-delay: 0.29s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.67s;" />
+    <img src="/animal4.png" class="dancer" style="animation-delay: 0.74s;" />
+                
+    <img src="/animal5.png" class="dancer" style="animation-delay: 0.97s;" />
+    <img src="/animal2.png" class="dancer" style="animation-delay: 0.32s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.96s;" />
+    <img src="/animal5.png" class="dancer" style="animation-delay: 0.1s;" />
+    <img src="/animal3.png" class="dancer" style="animation-delay: 0.78s;" />
+    <img src="/animal1.png" class="dancer" style="animation-delay: 0.66s;" />
+    <img src="/animal2.png" class="dancer" style="animation-delay: 0.61s;" />
+  </div>
+
   <audio id="dj-audio" src="/musica.mp3"></audio>
   <canvas id="visualizer"></canvas>
+
   <script>
     const caballo = document.getElementById("dj-caballo");
     const audio = document.getElementById("dj-audio");
@@ -187,6 +265,7 @@
     const smoke = document.getElementById("smoke-svg");
     const laser = document.getElementById("laser-svg");
     const body = document.body;
+    const dancers = document.querySelectorAll(".dancer");
     let audioCtx, analyser, source, dataArray, bufferLength, animating = false;
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
@@ -238,17 +317,17 @@
         audioCtx.resume();
         animating = true;
         caballo.classList.add("glow");
-        smoke.classList.add("active");
         laser.classList.add("active");
         body.classList.add("active-glow");
+        dancers.forEach(d => d.classList.add("active"));
         drawBars();
       } else {
         audio.pause();
         animating = false;
         caballo.classList.remove("glow");
-        smoke.classList.remove("active");
         laser.classList.remove("active");
         body.classList.remove("active-glow");
+        dancers.forEach(d => d.classList.remove("active"));
         ctx.clearRect(0, 0, visualizer.width, visualizer.height);
       }
     }
